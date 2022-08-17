@@ -10,6 +10,32 @@ body {
   min-width: 600px;
   border: 1px solid salmon;
   border-radius: 3px;
+  font-family: "Gantari", sans-serif;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.locationSearchForm {
+  margin: 15px 0 25px;
+  display: block;
+  font-family: "Gantari", sans-serif;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.locationSearchForm__inputArea {
+  border: 1px solid #9aa0a6;
+  border-radius: 3px;
+}
+
+::placeholder {
+  color: #9aa0a6;
+}
+
+.locationSearchForm__searchButton {
+  position: relative;
+  left: -35px;
+  border: none;
+  background: transparent;
+  color: salmon;
 }
 
 .currentWeather {
@@ -52,6 +78,8 @@ body {
   line-height: 26px;
   text-align: right;
   color: salmon;
+  font-family: "Gantari", sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .currentWeather__moreInfo-details {
@@ -68,4 +96,44 @@ body {
   line-height: 1;
   text-align: right;
   color: #9aa0a6;
+}
+
+.nextDays {
+  margin: 0 0 20px 0;
+}
+
+.nextDays__day {
+  text-align: center;
+  color: #9aa0a6;
+}
+
+.nextDays__icon {
+  display: block;
+  text-align: center;
+}
+
+.nextDays__degree {
+  text-align: center;
+}
+
+.nextDays__degree-high {
+  color: #9aa0a6;
+}
+
+.nextDays__degree-low {
+  color: #e8eaed;
+}
+
+.coderInfo {
+  text-align: center;
+  font-size: 13px;
+  color: #9aa0a6;
+}
+
+.gitHub-link {
+  color: salmon;
+}
+
+.gitHub-link:hover {
+  color: rgb(240, 107, 93);
 }
