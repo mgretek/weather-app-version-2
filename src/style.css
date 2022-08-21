@@ -1,29 +1,27 @@
 body {
   background: #202124;
+  font-family: "Gantari", sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .content {
   display: block;
-  margin: 15px 50px 15px 50px;
+  margin: 30px auto;
   padding: 10px 15px;
-  max-width: 100%;
-  min-width: 600px;
+  max-width: 650px;
   border: 1px solid salmon;
   border-radius: 3px;
-  font-family: "Gantari", sans-serif;
-  font-family: "Ubuntu", sans-serif;
 }
 
 .locationSearchForm {
   margin: 15px 0 25px;
   display: block;
-  font-family: "Gantari", sans-serif;
-  font-family: "Ubuntu", sans-serif;
 }
 
 .locationSearchForm__inputArea {
-  border: 1px solid #9aa0a6;
+  border: 1px solid salmon;
   border-radius: 3px;
+  background: #202124;
 }
 
 ::placeholder {
@@ -42,6 +40,10 @@ body {
   padding: 17px;
 }
 
+.currentWeather__MainInfo {
+  display: flex;
+}
+
 .currentWeather__mainIcon {
   display: inline-block;
   position: relative;
@@ -54,6 +56,7 @@ body {
   display: inline-block;
   font-size: 50px;
   font-weight: 600;
+  color: salmon;
 }
 
 .currentWeather__degree-units {
@@ -61,11 +64,16 @@ body {
   top: -25px;
   font-size: 16px;
   line-height: 24px;
-  font-weight: 400;
+  font-weight: 600;
+  color: #9aa0a6;
+}
+
+.currentWeather__degree-unitsCelsius {
+  color: salmon;
 }
 
 .currentWeather__degree-unitsDivider {
-  font-weight: 400;
+  color: #9aa0a6;
 }
 
 .currentWeather__degree-unitsFahrenheit {
@@ -78,8 +86,6 @@ body {
   line-height: 26px;
   text-align: right;
   color: salmon;
-  font-family: "Gantari", sans-serif;
-  font-family: "Ubuntu", sans-serif;
 }
 
 .currentWeather__moreInfo-details {
@@ -104,7 +110,7 @@ body {
 
 .nextDays__day {
   text-align: center;
-  color: #9aa0a6;
+  color: #e8eaed;
 }
 
 .nextDays__icon {
@@ -117,11 +123,11 @@ body {
 }
 
 .nextDays__degree-high {
-  color: #9aa0a6;
+  color: #e8eaed;
 }
 
 .nextDays__degree-low {
-  color: #e8eaed;
+  color: #9aa0a6;
 }
 
 .coderInfo {
