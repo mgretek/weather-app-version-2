@@ -25,12 +25,6 @@ function displayTemperature(response) {
   );
 }
 
-let apiKey = "749066f0dd440bc71c8cce63998ab3d2";
-let locationCity = "Tartu";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${locationCity}&appid=${apiKey}&units=metric`;
-
-axios.get(apiUrl).then(displayTemperature);
-
 //--- *** ---//
 
 let currentDateTime = new Date();
@@ -71,3 +65,21 @@ let currentMinutes = String(currentDateTime.getMinutes()).padStart(2, "0");
 timeInfo.innerHTML = `${currentDate}.${currentMonth}.${currentYear}, ${currentWeekDay} </br> ${currentHours}:${currentMinutes}`;
 
 //--- *** ---//
+
+function search(city) {
+  let apiKey = "749066f0dd440bc71c8cce63998ab3d2";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function locationSearchSubmit(event) {
+  event.preventDefault();
+  let locationCity = document.querySelector("#search");
+  search(locationCity.value);
+}
+
+search("Tartu");
+
+let searchBarElement = document.querySelector(".locationSearchForm");
+searchBarElement.addEventListener("submit", locationSearchSubmit);
