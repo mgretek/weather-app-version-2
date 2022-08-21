@@ -1,23 +1,33 @@
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#current-degree");
-  let roundedCurrentTemperature = Math.round(response.data.main.temp);
   let locationElement = document.querySelector("#location");
   let airPressureElement = document.querySelector("#pressure");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind-speed");
   let descriptionElement = document.querySelector("#description");
-  temperatureElement.innerHTML = roundedCurrentTemperature;
+  let currentWeatherIconElement = document.querySelector(
+    "#current-weather-main-icon"
+  );
+
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
   locationElement.innerHTML = response.data.name;
   airPressureElement.innerHTML = response.data.main.pressure;
   humidityElement.innerHTML = Math.round(response.data.main.humidity);
   windElement.innerHTML = Math.round(response.data.wind.speed) * 3.6;
   descriptionElement.innerHTML = response.data.weather[0].description;
-
-  //console.log(response.data.weather[0].description);
+  currentWeatherIconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  currentWeatherIconElement.setAttribute(
+    "alt",
+    `Image of ${response.data.weather[0].description}`
+  );
 }
 
 let apiKey = "749066f0dd440bc71c8cce63998ab3d2";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}&units=metric`;
+let locationCity = "Tartu";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${locationCity}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
 
