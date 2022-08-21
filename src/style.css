@@ -20,7 +20,7 @@ textarea {
 }
 
 .locationSearchForm {
-  margin: 15px 0 25px;
+  margin: 15px 0 -12px;
   display: block;
 }
 
@@ -148,6 +148,15 @@ textarea {
 
 .gitHub-link:hover {
   color: rgb(240, 107, 93);
+}
+#my-current-location {
+  position: relative;
+  left: 231px;
+  top: -16px;
+  border: 1px solid salmon;
+  border-radius: 3px;
+  background: transparent;
+  color: salmon;
 }
 
 #description:first-letter {

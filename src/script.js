@@ -83,3 +83,36 @@ search("Tartu");
 
 let searchBarElement = document.querySelector(".locationSearchForm");
 searchBarElement.addEventListener("submit", locationSearchSubmit);
+
+//--- *** ---//
+
+function showCurrentLocationInfo() {
+  navigator.geolocation.getCurrentPosition(success, error);
+}
+
+let currentLocationButton = document.querySelector("#my-current-location");
+currentLocationButton.addEventListener("click", showCurrentLocationInfo);
+
+function showCurrentLocationTemperature(response) {
+  console.log(response);
+  let myLocationCurrent = document.querySelector("#current-degree");
+  myLocationCurrent.innerHTML = Math.round(response.data.main.temp);
+  let myCurrentCity = document.querySelector(
+    ".currentWeather__currentLocation"
+  );
+  myCurrentCity.innerHTML = response.data.name;
+}
+
+function success(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+
+  apiKeyCurrent = "749066f0dd440bc71c8cce63998ab3d2";
+  apiUrlCurrent = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKeyCurrent}&units=metric`;
+
+  axios.get(apiUrlCurrent).then(showCurrentLocationTemperature);
+}
+
+function error() {
+  alert("Please allow access to your location to show current temperature.");
+}
