@@ -4,6 +4,12 @@ body {
   font-family: "Ubuntu", sans-serif;
 }
 
+input,
+select,
+textarea {
+  color: salmon;
+}
+
 .content {
   display: block;
   margin: 30px auto;
