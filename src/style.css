@@ -10,6 +10,23 @@ textarea {
   color: salmon;
 }
 
+a:link {
+  text-decoration: none;
+  color: #9aa0a6;
+}
+
+a:visited {
+  color: #9aa0a6;
+}
+
+a:hover {
+  color: #9aa0a6;
+}
+
+a:active {
+  color: #9aa0a6;
+}
+
 .content {
   display: block;
   margin: 30px auto;
@@ -80,7 +97,7 @@ textarea {
   text-decoration: none;
 }
 
-.currentWeather__degree-unitsCelsius .active {
+.active {
   color: salmon;
 }
 
