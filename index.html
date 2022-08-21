@@ -45,8 +45,9 @@
                 class="currentWeather__mainIcon"
               />
             </span>
-            <span class="currentWeather__degree"
-              >26<span class="currentWeather__degree-units"
+            <span class="currentWeather__info">
+              <span class="currentWeather__degree" id="current-degree"></span
+              ><span class="currentWeather__degree-units"
                 ><span class="currentWeather__degree-unitsCelsius">°C </span
                 ><span class="currentWeather__degree-unitsDivider">|</span
                 ><span class="currentWeather__degree-unitsFahrenheit"></span>
@@ -54,23 +55,24 @@
               ></span
             >
             <span class="currentWeather__moreInfo-details">
-              <div>Precipitation: 3%</div>
-              <div>Air humidity: 67%</div>
-              <div>Wind: 47 km/h</div>
+              <div>Air pressure: <span id="pressure"></span> hPa</div>
+              <div>Air humidity: <span id="humidity"></span>%</div>
+              <div>Wind: <span id="wind-speed"></span> km/h</div>
             </span>
           </div>
           <div class="col-6">
-            <div class="currentWeather__currentLocation">Costa Adeje</div>
+            <div class="currentWeather__currentLocation" id="location">
+              Costa Adeje
+            </div>
             <div class="currentWeather__moreInfo-dateTime">
-              <div>17.08.2022, Wednesday</div>
-              <div>18:16</div>
-              <div>Partly cloudy</div>
+              <div id="current-date"></div>
+              <div id="description"></div>
             </div>
           </div>
         </div>
         <div class="row nextDays">
           <div class="col-2">
-            <div class="nextDays__day">Thu</div>
+            <div class="nextDays__day">Thursday</div>
             <div class="nextDays__icon">
               <img
                 src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png"
@@ -83,7 +85,7 @@
             </div>
           </div>
           <div class="col-2">
-            <div class="nextDays__day">Fri</div>
+            <div class="nextDays__day">Friday</div>
             <div class="nextDays__icon">
               <img
                 src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png"
@@ -96,7 +98,7 @@
             </div>
           </div>
           <div class="col-2">
-            <div class="nextDays__day">Sat</div>
+            <div class="nextDays__day">Saturday</div>
             <div class="nextDays__icon">
               <img
                 src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png"
@@ -109,7 +111,7 @@
             </div>
           </div>
           <div class="col-2">
-            <div class="nextDays__day">Sun</div>
+            <div class="nextDays__day">Sunday</div>
             <div class="nextDays__icon">
               <img
                 src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png"
@@ -122,7 +124,7 @@
             </div>
           </div>
           <div class="col-2">
-            <div class="nextDays__day">Mon</div>
+            <div class="nextDays__day">Monday</div>
             <div class="nextDays__icon">
               <img
                 src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png"
@@ -135,7 +137,7 @@
             </div>
           </div>
           <div class="col-2">
-            <div class="nextDays__day">Tue</div>
+            <div class="nextDays__day">Tuesday</div>
             <div class="nextDays__icon">
               <img
                 src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png"
@@ -159,6 +161,7 @@
         by Merilin-Grete Kakko
       </div>
     </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="src/script.js"></script>
   </body>
 </html>
