@@ -9,6 +9,8 @@ function displayTemperature(response) {
     "#current-weather-main-icon"
   );
 
+  temperatureCelsius = Math.round(response.data.main.temp);
+
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   locationElement.innerHTML = response.data.name;
   airPressureElement.innerHTML = response.data.main.pressure;
@@ -79,8 +81,6 @@ function locationSearchSubmit(event) {
   search(locationCity.value);
 }
 
-search("Tartu");
-
 let searchBarElement = document.querySelector(".locationSearchForm");
 searchBarElement.addEventListener("submit", locationSearchSubmit);
 
@@ -116,3 +116,32 @@ function success(position) {
 function error() {
   alert("Please allow access to your location to show current temperature.");
 }
+
+//--- *** ---//
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = (temperatureCelsius * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#current-degree");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let temperatureCelsius = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+//--- *** ---//
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-degree");
+  temperatureElement.innerHTML = Math.round(temperatureCelsius);
+}
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", convertToCelsius);
+
+//--- *** ---//
+
+search("Tartu");

@@ -42,6 +42,7 @@
         <button id="my-current-location">
           <i class="fa-solid fa-location-dot"></i>
         </button>
+
         <div class="row">
           <div class="col-6 currentWeather">
             <span>
@@ -52,15 +53,18 @@
                 id="current-weather-main-icon"
               />
             </span>
-            <span class="currentWeather__info">
-              <span class="currentWeather__degree" id="current-degree"></span
-              ><span class="currentWeather__degree-units"
-                ><span class="currentWeather__degree-unitsCelsius">°C </span
-                ><span class="currentWeather__degree-unitsDivider">|</span
-                ><span class="currentWeather__degree-unitsFahrenheit"></span>
-                °F</span
-              ></span
-            >
+
+            <span class="currentWeather__degree" id="current-degree"></span>
+            <span class="currentWeather__degree-units">
+              <span class="currentWeather__degree-unitsCelsius active">
+                <a href="#" id="celsius"> °C </a>
+              </span>
+              <span class="currentWeather__degree-unitsDivider">|</span>
+              <span class="currentWeather__degree-unitsFahrenheit"
+                ><a href="#" id="fahrenheit"> °F</a></span
+              >
+            </span>
+
             <span class="currentWeather__moreInfo-details">
               <div>Air pressure: <span id="pressure"></span> hPa</div>
               <div>Air humidity: <span id="humidity"></span>%</div>
@@ -77,6 +81,9 @@
             </div>
           </div>
         </div>
+
+        <!-- next days forecast from here 
+
         <div class="row nextDays">
           <div class="col-2">
             <div class="nextDays__day">Thursday</div>
@@ -157,6 +164,8 @@
             </div>
           </div>
         </div>
+
+        to here -->
       </div>
       <div class="coderInfo">
         <a

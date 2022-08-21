@@ -46,10 +46,6 @@ textarea {
   padding: 17px;
 }
 
-.currentWeather__MainInfo {
-  display: flex;
-}
-
 .currentWeather__mainIcon {
   display: inline-block;
   position: relative;
@@ -74,7 +70,17 @@ textarea {
   color: #9aa0a6;
 }
 
+.currentWeather__degree-units .active {
+  text-decoration: none;
+  color: salmon;
+}
+
 .currentWeather__degree-unitsCelsius {
+  color: salmon;
+  text-decoration: none;
+}
+
+.currentWeather__degree-unitsCelsius .active {
   color: salmon;
 }
 
@@ -111,7 +117,7 @@ textarea {
 }
 
 .nextDays {
-  margin: 0 0 20px 0;
+  margin: 0 0 25px 0;
 }
 
 .nextDays__day {
