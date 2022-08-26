@@ -1,3 +1,10 @@
+function getForecast(coordinates) {
+  let apiKey = "749066f0dd440bc71c8cce63998ab3d2";
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#current-degree");
   let locationElement = document.querySelector("#location");
@@ -25,9 +32,12 @@ function displayTemperature(response) {
     "alt",
     `Image of ${response.data.weather[0].description}`
   );
+
+  getForecast(response.data.coord);
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let nextDaysForecast = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -178,4 +188,3 @@ celsiusLink.addEventListener("click", convertToCelsius);
 //--- *** ---//
 
 search("Tartu");
-displayForecast();
