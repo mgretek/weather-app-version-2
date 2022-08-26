@@ -31,11 +31,13 @@ function displayForecast() {
   let nextDaysForecast = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  forecastHTML =
-    forecastHTML +
-    `
+  let days = ["Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
     <div class="col-2">
-      <div class="nextDays__day">Thursday</div>
+      <div class="nextDays__day">${day}</div>
       <div class="nextDays__icon">
         <img
           src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png"
@@ -48,24 +50,7 @@ function displayForecast() {
       </div>
     </div>    
     `;
-
-  forecastHTML =
-    forecastHTML +
-    `
-    <div class="col-2">
-      <div class="nextDays__day">Thursday</div>
-      <div class="nextDays__icon">
-        <img
-          src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png"
-          alt="cloudy"
-        />
-      </div>
-      <div class="nextDays__degree">
-        <span class="nextDays__degree-high">29° </span>
-        <span class="nextDays__degree-low">22°</span>
-      </div>
-    </div>      
-    `;
+  });
 
   forecastHTML = forecastHTML + `</div>`;
   nextDaysForecast.innerHTML = forecastHTML;
