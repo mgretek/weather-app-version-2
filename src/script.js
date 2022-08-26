@@ -36,27 +36,40 @@ function displayTemperature(response) {
   getForecast(response.data.coord);
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let nextDaysForecast = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `
     <div class="col-2">
-      <div class="nextDays__day">${day}</div>
+      <div class="nextDays__day">${formatDay(forecastDay.dt)}</div>
       <div class="nextDays__icon">
         <img
-          src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png"
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
           alt="cloudy"
         />
       </div>
       <div class="nextDays__degree">
-        <span class="nextDays__degree-high">29° </span>
-        <span class="nextDays__degree-low">22°</span>
+        <span class="nextDays__degree-high">${Math.round(
+          forecastDay.temp.max
+        )}° </span>
+        <span class="nextDays__degree-low">${Math.round(
+          forecastDay.temp.min
+        )}°</span>
       </div>
     </div>    
     `;
