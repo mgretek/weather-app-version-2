@@ -97,18 +97,6 @@ a:active {
   text-decoration: none;
 }
 
-.active {
-  color: salmon;
-}
-
-.currentWeather__degree-unitsDivider {
-  color: #9aa0a6;
-}
-
-.currentWeather__degree-unitsFahrenheit {
-  color: #9aa0a6;
-}
-
 .currentWeather__currentLocation {
   font-size: 25px;
   font-weight: 600;
