@@ -62,6 +62,7 @@ function displayForecast(response) {
             forecastDay.weather[0].icon
           }@2x.png"
           alt="cloudy"
+          width= 90px;
         />
       </div>
       <div class="nextDays__degree">
@@ -170,35 +171,6 @@ function success(position) {
 function error() {
   alert("Please allow access to your location to show current temperature.");
 }
-
-//--- *** ---//
-
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheitTemperature = (temperatureCelsius * 9) / 5 + 32;
-  let temperatureElement = document.querySelector("#current-degree");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-let temperatureCelsius = null;
-
-let fahrenheitLink = document.querySelector("#fahrenheit");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
-//--- *** ---//
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-  let temperatureElement = document.querySelector("#current-degree");
-  temperatureElement.innerHTML = Math.round(temperatureCelsius);
-}
-
-let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", convertToCelsius);
 
 //--- *** ---//
 
