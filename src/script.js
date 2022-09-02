@@ -175,3 +175,15 @@ function error() {
 //--- *** ---//
 
 search("Tartu");
+
+//--- *** ---//
+
+fetch("https://type.fit/api/quotes")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    //console.log(data[0].text);
+    let quote = document.querySelector(".quote");
+    quote.innerHTML = data[0].text;
+  });
