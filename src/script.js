@@ -183,7 +183,14 @@ fetch("https://type.fit/api/quotes")
     return response.json();
   })
   .then(function (data) {
-    //console.log(data[0].text);
+    //console.log(data);
     let quote = document.querySelector(".quote");
-    quote.innerHTML = data[0].text;
+    quote.innerHTML = `"${data[0].text}" </br> quote by ${data[0].author}`;
+    //quote.innerHTML = `"${data[Math.floor(Math.random() * data.length)]}"`;
   });
+
+/*
+var colors = ["red", "blue", "green", "yellow"];
+var randomColor = colors[Math.floor(Math.random() * colors.length)];
+console.log(randomColor);
+*/

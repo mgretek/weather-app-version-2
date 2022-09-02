@@ -113,6 +113,10 @@ a:active {
   color: #9aa0a6;
 }
 
+.currentLocationBlock {
+  padding-right: 19px;
+}
+
 .currentWeather__moreInfo-dateTime {
   margin: 3px;
   font-size: 16px;
@@ -148,6 +152,10 @@ a:active {
 }
 
 .quote {
+  margin: 30px 20px 0px;
+  padding: 15px;
+  font-size: 15px;
+  text-align: center;
   color: #9aa0a6;
   font-style: italic;
 }
