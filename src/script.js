@@ -38,6 +38,7 @@ function displayTemperature(response) {
   getForecast(response.data.coord);
 }
 
+//Getting day name from timestamp provided by API
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -147,7 +148,7 @@ searchBarElement.addEventListener("submit", locationSearchSubmit);
 
 //--- *** ---// Current location GPS button
 
-//Asking fir user coordinates via browser geolocation
+//Asking for user coordinates via browser geolocation
 function showCurrentLocationInfo() {
   navigator.geolocation.getCurrentPosition(success, error);
 }
@@ -164,7 +165,7 @@ function showCurrentLocationTemperature(response) {
     ".currentWeather__currentLocation"
   );
   myCurrentCity.innerHTML = response.data.name;
-  //displayForecast(response);
+  getForecast(response.data.coord);
 }
 
 //Getting position data based on coordinates through API if user clicked "allow" on current location request
@@ -175,7 +176,9 @@ function success(position) {
   apiKeyCurrent = "749066f0dd440bc71c8cce63998ab3d2";
   apiUrlCurrent = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKeyCurrent}&units=metric`;
 
-  axios.get(apiUrlCurrent).then(showCurrentLocationTemperature);
+  axios.get(apiUrlCurrent).then(function (response) {
+    showCurrentLocationTemperature(response);
+  });
 }
 
 //Displaying error messange if user won't allow location request
@@ -196,5 +199,11 @@ fetch("https://type.fit/api/quotes")
   .then(function (data) {
     let quote = document.querySelector(".quote");
     let pickedNumber = Math.floor(Math.random() * data.length);
-    quote.innerHTML = `"${data[pickedNumber].text}" </br> a quote by ${data[pickedNumber].author}`;
+    quote.innerHTML = `"${data[pickedNumber].text}" </br> - ${data[pickedNumber].author}`;
+
+    if (data[pickedNumber].author === null) {
+      quote.innerHTML = `"${data[pickedNumber].text}" </br> - ${(data[
+        pickedNumber
+      ].author = "unknown")}`;
+    }
   });

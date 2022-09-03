@@ -114,7 +114,7 @@ a:active {
 }
 
 .currentLocationBlock {
-  padding-right: 19px;
+  padding-right: 26px;
 }
 
 .currentWeather__moreInfo-dateTime {
@@ -160,17 +160,21 @@ a:active {
   font-style: italic;
 }
 
-.coderInfo {
+.footerInfo {
   text-align: center;
   font-size: 13px;
   color: #9aa0a6;
 }
 
-.gitHub-link {
+.quoteApiInfo {
+  text-align: center;
+}
+
+.location-link {
   color: salmon;
 }
 
-.gitHub-link:hover {
+.location-link:hover {
   color: rgb(240, 107, 93);
 }
 #my-current-location {
