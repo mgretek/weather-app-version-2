@@ -1,3 +1,4 @@
+//Pulling data through API call based on coordinates to display the next days forecast
 function getForecast(coordinates) {
   let apiKey = "749066f0dd440bc71c8cce63998ab3d2";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
@@ -5,6 +6,7 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
+//Displaying the current weather data pulled through API, getting location coordinates
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#current-degree");
   let locationElement = document.querySelector("#location");
@@ -44,11 +46,12 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+//Looping through data to display the next days forecast
 function displayForecast(response) {
   let forecast = response.data.daily;
-  let nextDaysForecast = document.querySelector("#forecast");
+  let nextDaysForecast = document.querySelector("#nextDaysForecast");
 
-  let forecastHTML = `<div class="row">`;
+  let forecastHTML = `<div class="row nextDays">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
       forecastHTML =
@@ -73,7 +76,7 @@ function displayForecast(response) {
           forecastDay.temp.min
         )}°</span>
       </div>
-    </div>    
+    </div>   
     `;
     }
   });
@@ -82,7 +85,7 @@ function displayForecast(response) {
   nextDaysForecast.innerHTML = forecastHTML;
 }
 
-//--- *** ---//
+//--- *** ---// Displaying current date and time
 
 let currentDateTime = new Date();
 let timeInfo = document.querySelector("#current-date");
@@ -123,6 +126,7 @@ timeInfo.innerHTML = `${currentDate}.${currentMonth}.${currentYear}, ${currentWe
 
 //--- *** ---//
 
+//Pulling data through API for a city submitted based on a city name
 function search(city) {
   let apiKey = "749066f0dd440bc71c8cce63998ab3d2";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -130,34 +134,40 @@ function search(city) {
   axios.get(apiUrl).then(displayTemperature);
 }
 
+//Event function to get the city name user submitted
 function locationSearchSubmit(event) {
   event.preventDefault();
   let locationCity = document.querySelector("#search");
   search(locationCity.value);
 }
 
+//Adding eventlistener for the search field submit
 let searchBarElement = document.querySelector(".locationSearchForm");
 searchBarElement.addEventListener("submit", locationSearchSubmit);
 
-//--- *** ---//
+//--- *** ---// Current location GPS button
 
+//Asking fir user coordinates via browser geolocation
 function showCurrentLocationInfo() {
   navigator.geolocation.getCurrentPosition(success, error);
 }
 
+//Adding eventlistener on click for the current location button
 let currentLocationButton = document.querySelector("#my-current-location");
 currentLocationButton.addEventListener("click", showCurrentLocationInfo);
 
+//Displaying current weather info based on user's current location
 function showCurrentLocationTemperature(response) {
-  console.log(response);
   let myLocationCurrent = document.querySelector("#current-degree");
   myLocationCurrent.innerHTML = Math.round(response.data.main.temp);
   let myCurrentCity = document.querySelector(
     ".currentWeather__currentLocation"
   );
   myCurrentCity.innerHTML = response.data.name;
+  //displayForecast(response);
 }
 
+//Getting position data based on coordinates through API if user clicked "allow" on current location request
 function success(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -168,29 +178,23 @@ function success(position) {
   axios.get(apiUrlCurrent).then(showCurrentLocationTemperature);
 }
 
+//Displaying error messange if user won't allow location request
 function error() {
   alert("Please allow access to your location to show current temperature.");
 }
 
-//--- *** ---//
+//--- *** ---//The default city displayed on reload
 
 search("Tartu");
 
-//--- *** ---//
+//--- *** ---// Random quote + author API fetch
 
 fetch("https://type.fit/api/quotes")
   .then(function (response) {
     return response.json();
   })
   .then(function (data) {
-    //console.log(data);
     let quote = document.querySelector(".quote");
-    quote.innerHTML = `"${data[0].text}" </br> quote by ${data[0].author}`;
-    //quote.innerHTML = `"${data[Math.floor(Math.random() * data.length)]}"`;
+    let pickedNumber = Math.floor(Math.random() * data.length);
+    quote.innerHTML = `"${data[pickedNumber].text}" </br> a quote by ${data[pickedNumber].author}`;
   });
-
-/*
-var colors = ["red", "blue", "green", "yellow"];
-var randomColor = colors[Math.floor(Math.random() * colors.length)];
-console.log(randomColor);
-*/
