@@ -181,7 +181,7 @@ function success(position) {
   });
 }
 
-//Displaying error messange if user won't allow location request
+//Displaying alert if user won't allow location request
 function error() {
   alert("Please allow access to your location to show current temperature.");
 }
@@ -204,6 +204,6 @@ fetch("https://type.fit/api/quotes")
     if (data[pickedNumber].author === null) {
       quote.innerHTML = `"${data[pickedNumber].text}" </br> - ${(data[
         pickedNumber
-      ].author = "unknown")}`;
+      ].author = "author unknown")}`;
     }
   });

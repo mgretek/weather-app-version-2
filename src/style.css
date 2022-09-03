@@ -2,6 +2,7 @@ body {
   background: #202124;
   font-family: "Gantari", sans-serif;
   font-family: "Ubuntu", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 input,
@@ -34,10 +35,16 @@ a:active {
   max-width: 700px;
   border: 1px solid salmon;
   border-radius: 3px;
+  background: linear-gradient(
+    330deg,
+    rgb(49, 52, 56) 25%,
+    rgb(250, 128, 114) 100%
+  );
+  background: linear-gradient(to bottom, #1d1d1d 0%, #202124 100%);
 }
 
 .locationSearchForm {
-  margin: 15px 0 -12px;
+  margin: 30px 0 -12px 14px;
   display: block;
 }
 
@@ -76,6 +83,8 @@ a:active {
   font-size: 50px;
   font-weight: 600;
   color: salmon;
+  font-family: "Gantari", sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .currentWeather__degree-units {
@@ -131,7 +140,7 @@ a:active {
 
 .nextDays__day {
   text-align: center;
-  color: #e8eaed;
+  color: #9aa0a6;
 }
 
 .nextDays__icon {
@@ -144,7 +153,7 @@ a:active {
 }
 
 .nextDays__degree-high {
-  color: #e8eaed;
+  color: #dddfe0;
 }
 
 .nextDays__degree-low {
@@ -152,12 +161,13 @@ a:active {
 }
 
 .quote {
-  margin: 30px 20px 0px;
+  margin: 10px 20px 0px;
   padding: 15px;
-  font-size: 15px;
+  font-size: 14px;
   text-align: center;
   color: #9aa0a6;
   font-style: italic;
+  font-family: "Montserrat", sans-serif;
 }
 
 .footerInfo {
@@ -177,9 +187,14 @@ a:active {
 .location-link:hover {
   color: rgb(240, 107, 93);
 }
+
+#currentInfoBlock {
+  margin-top: 6px;
+}
+
 #my-current-location {
   position: relative;
-  left: 231px;
+  left: 242px;
   top: -16px;
   border: 1px solid salmon;
   border-radius: 3px;
@@ -189,4 +204,8 @@ a:active {
 
 #description:first-letter {
   text-transform: capitalize;
+}
+
+#nextDaysForecast {
+  padding-top: 20px;
 }
