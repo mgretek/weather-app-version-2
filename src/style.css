@@ -33,15 +33,9 @@ a:active {
   margin: 30px auto;
   padding: 10px 15px;
   max-width: 700px;
-
   border: 1px solid salmon;
   border-radius: 3px;
-  background: linear-gradient(
-    330deg,
-    rgb(49, 52, 56) 25%,
-    rgb(250, 128, 114) 100%
-  );
-  background: linear-gradient(to bottom, #1d1d1d 0%, #202124 100%);
+  background: linear-gradient(to bottom, #483232 0%, #202124 45%);
 }
 
 .locationSearchForm {
@@ -52,11 +46,15 @@ a:active {
 .locationSearchForm__inputArea {
   border: 1px solid salmon;
   border-radius: 3px;
-  background: #202124;
+  background: #30282a;
+  color: salmon;
+  font-style: italic;
 }
 
 ::placeholder {
   color: #9aa0a6;
+  font-size: 13px;
+  font-style: italic;
 }
 
 .locationSearchForm__searchButton {
