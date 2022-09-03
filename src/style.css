@@ -126,7 +126,7 @@ a:active {
 }
 
 .currentWeather__moreInfo-dateTime {
-  margin: 3px;
+  margin: 4px 0px 0px 0px;
   font-size: 16px;
   line-height: 1;
   text-align: right;
@@ -169,6 +169,7 @@ a:active {
   color: #9aa0a6;
   font-style: italic;
   font-family: "Montserrat", sans-serif;
+  text-align: right;
 }
 
 .footerInfo {
