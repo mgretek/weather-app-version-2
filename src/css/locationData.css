@@ -23,12 +23,6 @@
   color: #9aa0a6;
 }
 
-.locationData__dateTime {
-}
-
-.locationData__description {
-}
-
 .locationData__description:first-letter {
   text-transform: capitalize;
 }
