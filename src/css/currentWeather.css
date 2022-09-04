@@ -1,0 +1,42 @@
+.currentWeather {
+  display: flex;
+  flex-direction: column;
+  margin-top: -15px;
+  gap: 0;
+}
+
+@media (min-width: 768px) {
+  .currentWeather {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 0;
+    gap: 10px;
+  }
+}
+
+.currentWeather__iconImg {
+}
+
+.currentWeather__iconImg {
+  display: inline-block;
+  position: relative;
+  height: 100px;
+}
+
+.currentWeather__degree {
+  display: inline-block;
+  font-size: 50px;
+  line-height: 1;
+  font-weight: 600;
+  color: salmon;
+}
+
+.currentWeather__unit {
+  position: relative;
+  top: -25px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: salmon;
+}

@@ -32,87 +32,107 @@
   <body>
     <div class="container">
       <div class="content">
-        <form class="locationSearchForm">
-          <input
-            type="text"
-            placeholder=" Enter a location..."
-            class="locationSearchForm__inputArea"
-            id="search"
-            autocomplete="off"
-          />
-          <button class="locationSearchForm__searchButton">
-            <i class="fa-solid fa-magnifying-glass"></i>
+        <header class="header">
+          <form
+            class="header__col header__col--left locationSearch"
+            id="js-location-search-form"
+          >
+            <input
+              type="text"
+              placeholder="Enter a location..."
+              class="locationSearch__input"
+              id="js-search"
+              autocomplete="off"
+            />
+            <button class="locationSearch__button">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+
+          <button
+            class="header__col myLocationButton"
+            id="js-my-location-button"
+          >
+            <i class="fa-solid fa-location-dot"></i>
           </button>
-        </form>
+        </header>
 
-        <button id="my-current-location">
-          <i class="fa-solid fa-location-dot"></i>
-        </button>
+        <div
+          class="soloPlace d-none d-md-block text-md-end"
+          id="js-solo-location"
+        ></div>
 
-        <div class="row" id="currentInfoBlock">
-          <div class="col-6 currentWeather">
-            <span>
-              <img
-                src="#"
-                alt="Image of a partly cloud-covered sun"
-                class="currentWeather__mainIcon"
-                id="current-weather-main-icon"
-              />
-            </span>
+        <div class="weatherLayout">
+          <div class="weatherLayout__imgCol">
+            <div class="currentWeather">
+              <span class="currentWeather__icon">
+                <img
+                  src="#"
+                  alt=""
+                  class="currentWeather__iconImg"
+                  id="js-current-weather-icon"
+                />
+              </span>
 
-            <span class="currentWeather__degree" id="current-degree"></span>
-            <span class="currentWeather__degree-units">
-              <span class="currentWeather__degree-unitsCelsius"> °C </span>
-            </span>
-
-            <span class="currentWeather__moreInfo-details">
-              <div>Air pressure: <span id="pressure"></span> hPa</div>
-              <div>Air humidity: <span id="humidity"></span>%</div>
-              <div>Wind: <span id="wind-speed"></span> km/h</div>
-            </span>
+              <div class="currentWeather__temperature noWrap text-center">
+                <span
+                  class="currentWeather__degree"
+                  id="js-current-weather-degree"
+                ></span>
+                <span class="currentWeather__unit">°C</span>
+              </div>
+            </div>
           </div>
-          <div class="col-6 currentLocationBlock">
-            <div class="currentWeather__currentLocation" id="location"></div>
-            <div class="currentWeather__moreInfo-dateTime">
-              <div id="current-date"></div>
-              <div id="description"></div>
+          <div class="weatherLayout__textCol">
+            <div class="locationData">
+              <div
+                class="locationData__place d-md-none text-md-end"
+                id="js-location"
+              ></div>
+              <div class="locationData__meta text-md-end">
+                <div class="locationData__dateTime" id="js-current-date"></div>
+                <div
+                  class="locationData__description"
+                  id="js-description"
+                ></div>
+              </div>
+            </div>
+
+            <div class="conditions">
+              <div>Air pressure: <span id="js-pressure"></span> hPa</div>
+              <div>Air humidity: <span id="js-humidity"></span>%</div>
+              <div>Wind: <span id="js-wind-speed"></span> km/h</div>
             </div>
           </div>
         </div>
-        <div id="nextDaysForecast"></div>
-        <div class="quote"></div>
+        <div id="js-next-days"></div>
+        <div class="quote" id="js-quote"></div>
       </div>
-      <div class="footerInfo">
-        <div class="coderInfo">
-          <span>
+      <div class="footer">
+        <div class="footer__coderInfo">
+          <div>
             Coded by
             <a
               href="https://www.linkedin.com/in/merilin-grete-kakko/"
-              class="location-link"
+              class="footer__link"
               target="_blank"
               >Merilin-Grete Kakko</a
             >.
-          </span>
 
-          <span>Open-source code in </span>
-          <a
-            href="https://github.com/mgretek/weather-app-version-2"
-            class="location-link"
-            target="_blank"
-            >GitHub</a
-          >
-          <img
-            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/045/379/original/GitHub-Mark-32px.png?1662236151"
-            alt="GitHub logo"
-            width="18px"
-            id="github-logo"
-          />
+            <span>Open-source code in</span>
+            <a
+              href="https://github.com/mgretek/weather-app-version-2"
+              class="footer__link"
+              target="_blank"
+              >GitHub.</a
+            >
+          </div>
         </div>
-        <div class="quoteApiInfo">
+        <div class="footer__quoteInfo">
           <span>Inspirational quotes by </span>
           <a
             href="https://forum.freecodecamp.org/t/free-api-inspirational-quotes-json-with-code-examples/311373"
-            class="footerInfo location-link"
+            class="footer__link"
             target="_blank"
             >Quotes Free API</a
           >.

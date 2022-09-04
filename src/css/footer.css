@@ -1,0 +1,21 @@
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #717981;
+}
+
+.footer__quoteInfo {
+  text-align: center;
+}
+
+.footer__link {
+  color: #717981;
+}
+
+.footer__link:hover {
+  color: rgb(240, 107, 93);
+}
+
+.footer__githubImg {
+  margin-top: -4px;
+}

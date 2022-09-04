@@ -1,0 +1,16 @@
+body {
+  background: #202124;
+  font-family: "Montserrat", sans-serif;
+  color: #9aa0a6;
+}
+
+::placeholder {
+  color: #9aa0a6;
+  font-size: 13px;
+  font-style: italic;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}

@@ -1,0 +1,33 @@
+.weatherLayout {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.weatherLayout__imgCol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 33.3%;
+}
+
+@media (min-width: 768px) {
+  .weatherLayout__imgCol {
+    justify-content: flex-start;
+  }
+}
+
+.weatherLayout__textCol {
+  flex-grow: 1;
+}
+
+@media (min-width: 768px) {
+  .weatherLayout__textCol {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

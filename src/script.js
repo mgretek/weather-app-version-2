@@ -8,20 +8,24 @@ function getForecast(coordinates) {
 
 //Displaying the current weather data pulled through API, getting location coordinates
 function displayTemperature(response) {
-  let temperatureElement = document.querySelector("#current-degree");
-  let locationElement = document.querySelector("#location");
-  let airPressureElement = document.querySelector("#pressure");
-  let humidityElement = document.querySelector("#humidity");
-  let windElement = document.querySelector("#wind-speed");
-  let descriptionElement = document.querySelector("#description");
+  let temperatureElement = document.querySelector("#js-current-weather-degree");
+  let locationElements = document.querySelectorAll(
+    "#js-location, #js-solo-location"
+  );
+  let airPressureElement = document.querySelector("#js-pressure");
+  let humidityElement = document.querySelector("#js-humidity");
+  let windElement = document.querySelector("#js-wind-speed");
+  let descriptionElement = document.querySelector("#js-description");
   let currentWeatherIconElement = document.querySelector(
-    "#current-weather-main-icon"
+    "#js-current-weather-icon"
   );
 
   temperatureCelsius = Math.round(response.data.main.temp);
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
-  locationElement.innerHTML = response.data.name;
+  locationElements.forEach((locationElement) => {
+    locationElement.innerHTML = response.data.name;
+  });
   airPressureElement.innerHTML = response.data.main.pressure;
   humidityElement.innerHTML = Math.round(response.data.main.humidity);
   windElement.innerHTML = Math.round(response.data.wind.speed) * 3.6;
@@ -50,30 +54,30 @@ function formatDay(timestamp) {
 //Looping through data to display the next days forecast
 function displayForecast(response) {
   let forecast = response.data.daily;
-  let nextDaysForecast = document.querySelector("#nextDaysForecast");
+  let nextDaysForecast = document.querySelector("#js-next-days");
 
-  let forecastHTML = `<div class="row nextDays">`;
+  let forecastHTML = `<div class="nextDays"><div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
       forecastHTML =
         forecastHTML +
         `
     <div class="col-2">
-      <div class="nextDays__day">${formatDay(forecastDay.dt)}</div>
+      <div class="nextDays__name">${formatDay(forecastDay.dt)}</div>
       <div class="nextDays__icon">
         <img
           src="http://openweathermap.org/img/wn/${
             forecastDay.weather[0].icon
           }@2x.png"
-          alt="cloudy"
-          width= 90px;
+          alt=""
+          class="nextDays__iconImg";
         />
       </div>
-      <div class="nextDays__degree">
-        <span class="nextDays__degree-high">${Math.round(
+      <div class="nextDays__temperature">
+        <span class="nextDays__temperatureHigh">${Math.round(
           forecastDay.temp.max
         )}° </span>
-        <span class="nextDays__degree-low">${Math.round(
+        <span class="nextDays__temperatureLow">${Math.round(
           forecastDay.temp.min
         )}°</span>
       </div>
@@ -82,14 +86,14 @@ function displayForecast(response) {
     }
   });
 
-  forecastHTML = forecastHTML + `</div>`;
+  forecastHTML = forecastHTML + `</div></div>`;
   nextDaysForecast.innerHTML = forecastHTML;
 }
 
 //--- *** ---// Displaying current date and time
 
 let currentDateTime = new Date();
-let timeInfo = document.querySelector("#current-date");
+let timeInfo = document.querySelector("#js-current-date");
 
 let weekDays = [
   "Sunday",
@@ -138,12 +142,12 @@ function search(city) {
 //Event function to get the city name user submitted
 function locationSearchSubmit(event) {
   event.preventDefault();
-  let locationCity = document.querySelector("#search");
+  let locationCity = document.querySelector("#js-search");
   search(locationCity.value);
 }
 
 //Adding eventlistener for the search field submit
-let searchBarElement = document.querySelector(".locationSearchForm");
+let searchBarElement = document.querySelector("#js-location-search-form");
 searchBarElement.addEventListener("submit", locationSearchSubmit);
 
 //--- *** ---// Current location GPS button
@@ -154,18 +158,20 @@ function showCurrentLocationInfo() {
 }
 
 //Adding eventlistener on click for the current location button
-let currentLocationButton = document.querySelector("#my-current-location");
+let currentLocationButton = document.querySelector("#js-my-location-button");
 currentLocationButton.addEventListener("click", showCurrentLocationInfo);
 
 //Displaying current weather info based on user's current location
 function showCurrentLocationTemperature(response) {
-  let myLocationCurrent = document.querySelector("#current-degree");
+  let myLocationCurrent = document.querySelector("#js-current-weather-degree");
   myLocationCurrent.innerHTML = Math.round(response.data.main.temp);
-  let myCurrentCity = document.querySelector(
-    ".currentWeather__currentLocation"
+  let myLocationCityNames = document.querySelectorAll(
+    "#js-location, #js-solo-location"
   );
-  myCurrentCity.innerHTML = response.data.name;
-  getForecast(response.data.coord);
+  myLocationCityNames.forEach((myLocationCityName) => {
+    myLocationCityName.innerHTML = response.data.name;
+    getForecast(response.data.coord);
+  });
 }
 
 //Getting position data based on coordinates through API if user clicked "allow" on current location request
@@ -197,7 +203,7 @@ fetch("https://type.fit/api/quotes")
     return response.json();
   })
   .then(function (data) {
-    let quote = document.querySelector(".quote");
+    let quote = document.querySelector("#js-quote");
     let pickedNumber = Math.floor(Math.random() * data.length);
     quote.innerHTML = `"${data[pickedNumber].text}" </br> - ${data[pickedNumber].author}`;
 

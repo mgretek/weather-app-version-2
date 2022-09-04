@@ -1,0 +1,13 @@
+.conditions {
+  display: inline-block;
+  padding: 0;
+  line-height: 1.3;
+  font-size: 13px;
+  color: #9aa0a6;
+}
+
+@media (min-width: 768px) {
+  .conditions {
+    flex-shrink: 0;
+  }
+}

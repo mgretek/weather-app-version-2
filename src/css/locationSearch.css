@@ -1,0 +1,31 @@
+.locationSearch {
+  display: block;
+  position: relative;
+}
+
+.locationSearch__input {
+  display: block;
+  width: 100%;
+  padding-right: 35px;
+  border: 1px solid salmon;
+  box-sizing: border-box;
+  border-radius: 3px;
+  background: #30282a;
+  color: salmon;
+  font-style: italic;
+}
+
+.locationSearch__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  padding: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 35px;
+  border: none;
+  background: transparent;
+  color: salmon;
+}

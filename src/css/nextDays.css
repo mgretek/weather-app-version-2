@@ -1,0 +1,61 @@
+.nextDays {
+  margin: 0 0 40px 0;
+}
+
+@media (min-width: 768px) {
+  .nextDays {
+    margin: 0 0 50px 0;
+  }
+}
+
+.nextDays__name {
+  font-size: 14px;
+  line-height: 1.44;
+  text-align: center;
+  color: #9aa0a6;
+}
+
+@media (min-width: 768px) {
+  .nextDays__name {
+    font-size: 16px;
+  }
+}
+
+.nextDays__icon {
+  display: block;
+  text-align: center;
+}
+
+.nextDays__iconImg {
+  display: inline-block;
+  width: 100%;
+  max-width: 80px;
+  height: auto;
+}
+
+.nextDays__temperature {
+  font-size: 14px;
+  line-height: 1.44;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .nextDays__temperature {
+    font-size: 16px;
+  }
+}
+
+.nextDays__temperatureHigh {
+  display: block;
+  color: #dddfe0;
+}
+
+@media (min-width: 576px) {
+  .nextDays__temperatureHigh {
+    display: inline;
+  }
+}
+
+.nextDays__temperatureLow {
+  color: #9aa0a6;
+}

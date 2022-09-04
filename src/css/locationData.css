@@ -1,0 +1,34 @@
+.locationData {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .locationData {
+    margin-bottom: 0;
+  }
+}
+
+.locationData__place {
+  margin-bottom: 15px;
+  font-size: 25px;
+  line-height: 1.25;
+  font-weight: 600;
+  color: salmon;
+}
+
+.locationData__meta {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #9aa0a6;
+}
+
+.locationData__dateTime {
+}
+
+.locationData__description {
+}
+
+.locationData__description:first-letter {
+  text-transform: capitalize;
+}
